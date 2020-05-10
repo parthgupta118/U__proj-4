@@ -33,7 +33,7 @@ app.post('/test', function (req, res) {
     console.log(req.body);
     textapi.sentiment({ 'text': req.body.text }, 
         function(error, response) {
-            if(error === null) {
+            if( error === null ) {
                 console.log(response);
                 res.json(response);
             }

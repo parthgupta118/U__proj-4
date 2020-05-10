@@ -1,8 +1,8 @@
-import { handleSubmit } from './formHandler';
+import { fetchData } from './formHandler';
 
-test('The innerHTML should not be null', () => {
-    // expect.assertions(1);
-    return handleSubmit().fetch().then(data => {
-            expect(data.json()).not.toEqual("null");
-        })
-})
+describe('fetchData', () => {
+    it('should load user data', () => {
+        global.fetch = jest.fn(() => Promise.resolve( { json: () => '' }))
+        expect(fetchData("Hi")).resolves.toBe('');
+    })
+});
