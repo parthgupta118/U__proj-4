@@ -31,7 +31,7 @@ app.listen(8082, function () {
 
 app.post('/test', function (req, res) {
     console.log(req.body);
-    textapi.sentiment({ 'text': req.body.formText }, 
+    textapi.sentiment({ 'text': req.body.text }, 
         function(error, response) {
             if(error === null) {
                 console.log(response);
