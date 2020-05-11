@@ -58,13 +58,13 @@ app.post('/test', function (req, res) {
             console.log("This is a valid url");
             textapi.sentiment({'url': req.body.text }, 
                 function(error, response) {
-                    if( error ) {
-                        throw new Error('Something went wrong after fetching the data');
+                    if( error === null ) {
+                        console.log(response);
+                        res.json(response);
                     }
 
                     else {
-                        console.log(response);
-                        res.json(response);
+                        throw new Error('Something went wrong after fetching the data');
                     }
                 }
             );
